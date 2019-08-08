@@ -1,0 +1,24 @@
+{
+  "name": "media-app-backend",
+  "version": "1.0.0",
+  "description": "Inspired by Art",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaronsekisambu/media-app-backend.git"
+  },
+  "author": "Aaron Sekisambu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aaronsekisambu/media-app-backend/issues"
+  },
+  "homepage": "https://github.com/aaronsekisambu/media-app-backend#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node": "^12.8.0",
+    "nodemon": "^1.19.1"
+  }
+}
