@@ -4,21 +4,49 @@
   "description": "Inspired by Art",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js --exec babel-node",
+    "build": "babel ./src/ --out-dir dist",
+    "migration:generate": "node_modules/.bin/sequelize migrations:generate --name",
+    "migrate": "node_modules/.bin/sequelize db:migrate",
+    "seed": "NODE_ENV=test node_modules/.bin/sequelize db:seed:all",
+    "migrate:refresh": "npm run migrate:reset && npm run migrate",
+    "migrate:reset": "node_modules/.bin/sequelize db:migrate:undo:all",
+    "test:all": "NODE_ENV=test npm run migrate:refresh && npm run seed && npm test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aaronsekisambu/media-app-backend.git"
   },
-  "author": "Aaron Sekisambu",
+  "author": "Media Group",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/aaronsekisambu/media-app-backend/issues"
   },
   "homepage": "https://github.com/aaronsekisambu/media-app-backend#readme",
   "dependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "express": "^4.17.1",
-    "node": "^12.8.0",
-    "nodemon": "^1.19.1"
+    "mocha": "^6.2.2",
+    "passport": "^0.4.0",
+    "passport-facebook": "^3.0.0",
+    "passport-facebook-token": "^3.3.0",
+    "passport-google-oauth": "^2.0.0",
+    "passport-google-plus-token": "^2.1.0",
+    "passport-jwt": "^4.0.0",
+    "pg": "^7.9.0",
+    "sequelize": "^5.21.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/node": "^7.6.3",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "babel-eslint": "^10.0.3",
+    "nodemon": "^1.19.4",
+    "sequelize-cli": "^5.5.1"
   }
 }
